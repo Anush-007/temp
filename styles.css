@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 5em;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.column label,
+.column input,
+.column textarea,
+.column select {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}

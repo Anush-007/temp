@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Customer Registration</title>
+</head>
+<body>
+    <h1>Customer Registration</h1>
+    <form id="registration-form">
+
+        <div class="column">
+            <!-- Personal Details -->
+            <h2>Personal Details</h2>
+            <label for="name">Name*</label>
+            <input type="text" id="name" name="name" class="text-only" required>
+            
+            <label for="dob">Date of Birth*</label>
+            <input type="date" id="dob" name="dob" required>
+            
+            <label for="nationality">Nationality</label>
+            <select id="nationality" name="nationality">
+              <option value="indian">Indian</option>
+              <option value="other">Other</option>
+            </select>
+            
+            <label for="aadhar">Aadhar*</label>
+            <input type="text" id="aadhar" name="aadhar" class="text-only" required>
+            
+            <label for="mobile">Mobile*</label>
+            <input type="text" id="mobile" name="mobile" class="numbers-only" pattern="\d{10}" title="Please enter exactly 10 digits" required>
+            
+            <label for="address">Customer Address</label>
+            <textarea id="address" name="address"></textarea>
+            
+            <label for="city">City</label>
+            <input type="text" id="city" name="city">
+          </div>
+          
+          <div class="column">
+            <!-- Bank Details -->
+            <h2>Bank Details</h2>
+            <label for="bankName">Bank Name*</label>
+            <input type="text" id="bankName" name="bankName" class="text-only" required>
+            
+            <label for="accountName">Account Name*</label>
+            <input type="text" id="accountName" name="accountName" required>
+            
+            <label for="accountNumber">Account Number*</label>
+            <input type="text" id="accountNumber" name="accountNumber" class="numbers-only" required>
+            
+            <label for="ifsc">IFSC</label>
+            <input type="text" id="ifsc" name="ifsc">
+            
+            <label for="bankAddress">Bank Address</label>
+            <textarea id="bankAddress" name="bankAddress"></textarea>
+            <button type="submit">Submit</button>
+          </div>
+          
+          <div class="column">
+            <!-- Car Details -->
+            <h2>Car Details</h2>
+            <label for="make">Make*</label>
+            <input type="text" id="make" name="make" required>
+            
+            <label for="model">Model*</label>
+            <input type="text" id="model" name="model" required>
+            
+            <label for="manufacturer">Manufacturer*</label>
+            <input type="text" id="manufacturer" name="manufacturer" required>
+            
+            <label for="dateOfManufacture">Date of Manufacture</label>
+            <input type="date" id="dateOfManufacture" name="dateOfManufacture">
+            
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country">
+            
+            <label for="number">Number</label>
+            <input type="text" id="number" name="number">
+            
+            <label for="chassisNumber">Chassis Number*</label>
+            <input type="text" id="chassisNumber" name="chassisNumber" pattern="[A-Za-z0-9]{1,15}" title="Please enter max 15 alphanumeric characters" required>
+            
+            <label for="engineType">Engine Type</label>
+            <input type="text" id="engineType" name="engineType" class="numbers-only" pattern="\d{2}" title="Please enter exactly 2 digits">
+          </div>
+    </form>
+</body>
+</html
