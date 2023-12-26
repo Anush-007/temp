@@ -1,89 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer List</title>
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 5em;
-    }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Customer List</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 5em;
+				background-color: #f4f7ff;
+				color: #090520;
+			}
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    button {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <h1>Customer List</h1>
-  <ul id="customer-list"></ul>
+			ul {
+				list-style-type: none;
+				padding: 0;
+			}
 
-  <script>
-    async function fetchSubmittedResponses() {
-      try {
-        // const response = await fetch('https://reqres.in/api/users');
-        
-        // if (response.ok) {
-        //   const jsonResponse = await response.json();
-        //   console.log(jsonResponse);
-        //   displaySubmittedResponses(jsonResponse.data);
-        // } else {
-        //   console.error('Error fetching submitted responses:', response.statusText);
-        // }
-        const customers = retrieveCustomers();
-        displaySubmittedResponses(customers);
-      } catch (error) {
-        console.error('Error fetching submitted responses:', error);
-      }
-    }
+			li {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 10px;
+				background-color: #e4ecff;
+				padding: 20px 30px 20px 20px;
+				border-radius: 10px;
+			}
+			button {
+				/* background-color: #090520;
+				color: rgb(172, 175, 217); */
+				background-color: #de628972;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				color: #070224;
+				border: none;
+				font-size: 1.5em;
+				/* padding: 5px; */
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Customer List</h1>
+		<ul id="customer-list"></ul>
 
-    function retrieveCustomers() {
-      const storedCustomers = localStorage.getItem('customers');
-      return storedCustomers ? JSON.parse(storedCustomers) : [];
-    }
+		<script>
+			async function fetchSubmittedResponses() {
+				try {
+					// const response = await fetch('https://reqres.in/api/users');
 
-    function storeCustomers(customers) {
-      localStorage.setItem('customers', JSON.stringify(customers));
-    }
+					// if (response.ok) {
+					//   const jsonResponse = await response.json();
+					//   console.log(jsonResponse);
+					//   displaySubmittedResponses(jsonResponse.data);
+					// } else {
+					//   console.error('Error fetching submitted responses:', response.statusText);
+					// }
+					const customers = retrieveCustomers();
+					displaySubmittedResponses(customers);
+				} catch (error) {
+					console.error('Error fetching submitted responses:', error);
+				}
+			}
 
-    function displaySubmittedResponses(data) {
-      const customerList = document.getElementById('customer-list');
-      data.forEach(customer => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `Customer ID : ${customer.id}, Customer Name : ${customer.name}`;
-        const removeButton = document.createElement('button');
-        removeButton.textContent = 'x';
-        removeButton.addEventListener('click', () => {
-          listItem.remove();
-          removeCustomer(customer.id); 
-        });
-        listItem.appendChild(removeButton);
-        customerList.appendChild(listItem);
-      });
-      console.log(data);
-    }
-    fetchSubmittedResponses();
+			function retrieveCustomers() {
+				const storedCustomers = localStorage.getItem('customers');
+				return storedCustomers ? JSON.parse(storedCustomers) : [];
+			}
 
-    function removeCustomer(customerId) {
-      let customers = retrieveCustomers();
-      customers = customers.filter(customer => customer.id !== customerId);
-      storeCustomers(customers);
-    }
-  </script>
+			function storeCustomers(customers) {
+				localStorage.setItem('customers', JSON.stringify(customers));
+			}
 
-</body>
+			function displaySubmittedResponses(data) {
+				const customerList = document.getElementById('customer-list');
+				data.forEach(customer => {
+					const listItem = document.createElement('li');
+					listItem.textContent = `Customer ID : ${customer.id}, Customer Name : ${customer.name}`;
+					const removeButton = document.createElement('button');
+					removeButton.textContent = 'x';
+					removeButton.addEventListener('click', () => {
+						listItem.remove();
+						removeCustomer(customer.id);
+					});
+					listItem.appendChild(removeButton);
+					customerList.appendChild(listItem);
+				});
+				console.log(data);
+			}
+			fetchSubmittedResponses();
+
+			function removeCustomer(customerId) {
+				let customers = retrieveCustomers();
+				customers = customers.filter(
+					customer => customer.id !== customerId
+				);
+				storeCustomers(customers);
+			}
+		</script>
+	</body>
 </html>
